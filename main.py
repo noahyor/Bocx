@@ -21,6 +21,11 @@ right = False
 up = False
 down = False
 
+speed = 0.05
+fric = 5
+# Max Friction: 5
+PLAYER.fric = fric
+
 def update():
     for thing in things:
         thing.update()
@@ -65,16 +70,16 @@ while True:
                 down = False
 
     if left:
-        PLAYER.vel += pygame.Vector2(-0.05, 0)
+        PLAYER.vel += pygame.Vector2(-speed, 0)
 
     if right:
-        PLAYER.vel += pygame.Vector2(0.05, 0)
+        PLAYER.vel += pygame.Vector2(speed, 0)
 
     if up:
-        PLAYER.vel += pygame.Vector2(0, -0.05)
+        PLAYER.vel += pygame.Vector2(0, -speed)
 
     if down:
-        PLAYER.vel += pygame.Vector2(0, 0.05)
+        PLAYER.vel += pygame.Vector2(0, speed)
 
     update()
     draw()
