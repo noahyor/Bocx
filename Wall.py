@@ -1,5 +1,6 @@
 import pygame
 
+
 class Wall:
 
     def __init__(self, startPos, endPos):
@@ -8,6 +9,6 @@ class Wall:
 
     def update(self):
         pass
-    
+
     def draw(self, surface):
         pygame.draw.line(surface, "black", self.start, self.end, width=3)
