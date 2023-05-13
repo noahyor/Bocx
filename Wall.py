@@ -11,4 +11,4 @@ class Wall:
         pass
 
     def draw(self, surface):
-        pygame.draw.line(surface, "black", self.start, self.end, width=3)
+        pygame.draw.line(surface, "black", self.start, self.end, width=20)

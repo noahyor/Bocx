@@ -14,7 +14,7 @@ PLAYER = Player()
 # Just in case:
 # WALL = Wall((0, 250), (250, 200))
 # things = [PLAYER, WALL]
-things = [PLAYER, Wall((0, 250), (250, 200))]
+things = [PLAYER, Wall((0, 289), (400, 289))]
 
 left = False
 right = False
@@ -25,6 +25,7 @@ speed = 0.05
 fric = 5
 # Max Friction: 5
 PLAYER.fric = fric
+
 
 def update():
     for thing in things:

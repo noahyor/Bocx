@@ -11,8 +11,9 @@ class Player:
     def update(self):
         self.pos += self.vel
         try:
-            self.vel -= (self.vel / ((5 - self.fric) ** 2))
+            self.vel -= (self.vel / ((5 - self.fric)**2))
         except ZeroDivisionError:
             pass
+
     def draw(self, surface):
         pygame.draw.rect(surface, "white", (self.pos, (50, 50)))
