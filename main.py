@@ -12,20 +12,17 @@ clock = pygame.time.Clock()
 
 PLAYER = Player()
 # Just in case:
-# WALL = Wall((0, 250), (250, 200))
-# things = [PLAYER, WALL]
-things = [PLAYER, Wall((0, 289), (400, 289))]
+WALL = Wall((0, 250), (250, 250))
+things = [PLAYER, WALL]
+# things = [PLAYER, Wall((0, 289), (400, 289))]
 
 left = False
 right = False
 up = False
 down = False
+colliding = False
 
 speed = 0.05
-fric = 5
-# Max Friction: 5
-PLAYER.fric = fric
-
 
 def update():
     for thing in things:
@@ -33,7 +30,7 @@ def update():
 
 
 def draw():
-    DISPLAYSURF.fill("grey")
+    DISPLAYSURF.fill("grey" if colliding else "blue")
     for thing in things:
         thing.draw(DISPLAYSURF)
 
@@ -52,14 +49,6 @@ while True:
                 up = True
             elif event.key == K_DOWN:
                 down = True
-            #if event.key == K_LEFT:
-            #    PLAYER.vel = pygame.Vector2(-1, 0)
-            #elif event.key == K_RIGHT:
-            #    PLAYER.vel = pygame.Vector2(1, 0)
-            #elif event.key == K_UP:
-            #    PLAYER.vel = pygame.Vector2(0, -1)
-            #elif event.key == K_DOWN:
-            #    PLAYER.vel = pygame.Vector2(0, 1)
         elif event.type == KEYUP:
             if event.key == K_LEFT:
                 left = False
@@ -82,6 +71,8 @@ while True:
     if down:
         PLAYER.vel += pygame.Vector2(0, speed)
 
+    colliding = PLAYER.collide(WALL)
+    
     update()
     draw()
     pygame.display.update()
