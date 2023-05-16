@@ -28,7 +28,7 @@ while True:
             elif event.key == K_RIGHT:
                 right = True
             elif event.key == K_UP:
-                world.PLAYER.vel += pygame.Vector2(0, JUMP_VEL)
+                world.PLAYER.vel += pygame.Vector2(0, -JUMP_VEL)
         elif event.type == KEYUP:
             if event.key == K_LEFT:
                 left = False
