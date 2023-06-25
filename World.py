@@ -20,7 +20,6 @@ class World:
         surf.fill("grey")
         for thing in self.things:
             thing.draw(surf)
-            pygame.draw.rect(surf, 'red', thing.rect(), width=1)
 
 
 
